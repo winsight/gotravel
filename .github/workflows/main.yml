@@ -28,12 +28,18 @@ jobs:
         run: ./gotravel_linux_arm64
         
       # Commit & Push
-      - name: Commit & Push changes
-        uses: actions-js/push@master
+      #- name: Commit & Push changes
+      #  uses: actions-js/push@master
+      #  with:
+      #    github_token: ${{ secrets.GOTRAVEL_TOKEN }}
+      #    branch: master
+      #############################    
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GOTRAVEL_TOKEN }}
-          branch: master
-
+          publish_branch: master
+      #############################
       # Get current date
       - name: Get current date
         id: date
